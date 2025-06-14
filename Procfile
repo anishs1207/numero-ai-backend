@@ -1,0 +1,1 @@
+web: gunicorn digit_predictor.wsgi:application --bind 0.0.0.0:$PORT
