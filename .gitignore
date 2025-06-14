@@ -1,0 +1,33 @@
+digit_model_cnn.pth
+*.pth
+
+# Python
+__pycache__/
+*.pyc
+venv/
+env/ # If you have another virtual env named 'env'
+
+# Databases
+db.sqlite3
+
+# Uploaded Media
+media/
+
+# Static Files (Django)
+staticfiles/
+
+# Logs
+*.log
+
+# Editor-specific files
+.vscode/
+.idea/
+*.swp
+*~
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Environment variables (if applicable)
+.env
