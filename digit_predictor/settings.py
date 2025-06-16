@@ -27,7 +27,7 @@ SECRET_KEY = env('SECRET_KEY') # Loaded from environment variable
 
 # Define allowed hosts for your application (your backend's domain/IP)
 # REPLACE PLACEHOLDERS with your actual production domain/IP
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'numero-ai.vercel.app', 'your-backend-domain.com', 'your_server_ip']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'numero-ai.vercel.app', 'numero-ai-backend.onrender.com']
 
 INSTALLED_APPS = [
     # Remove these if your project truly doesn't use a database, admin, auth, sessions, or messages
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles', # Essential for static files
+    'django.contrib.staticfilesf', # Essential for static files
     'rest_framework', # Your DRF app
     'digit_app',      # Your custom Django app
     'corsheaders',    # For CORS handling
