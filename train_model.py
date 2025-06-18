@@ -9,21 +9,21 @@ class CNN_DigitClassifier(nn.Module):
     def __init__(self):
         super(CNN_DigitClassifier, self).__init__()
         self.conv1 = nn.Sequential(
-            nn.Conv2d(1, 16, kernel_size=5, stride=1, padding=2), # Input: 1 channel (grayscale), Output: 16 channels, 5x5 kernel
+            nn.Conv2d(1, 16, kernel_size=5, stride=1, padding=2), 
             nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2, stride=2) # Reduces dimension by half (28x28 -> 14x14)
+            nn.MaxPool2d(kernel_size=2, stride=2) 
         )
         self.conv2 = nn.Sequential(
-            nn.Conv2d(16, 32, kernel_size=5, stride=1, padding=2), # Input: 16 channels, Output: 32 channels
+            nn.Conv2d(16, 32, kernel_size=5, stride=1, padding=2), 
             nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2, stride=2) # Reduces dimension by half (14x14 -> 7x7)
+            nn.MaxPool2d(kernel_size=2, stride=2) 
         )
-        self.fc = nn.Linear(32 * 7 * 7, 10) # Fully connected layer: 32 channels * 7x7 image size -> 10 output classes
+        self.fc = nn.Linear(32 * 7 * 7, 10) 
 
     def forward(self, x):
         out = self.conv1(x)
         out = self.conv2(out)
-        out = out.view(out.size(0), -1) # Flatten the output for the fully connected layer
+        out = out.view(out.size(0), -1)
         out = self.fc(out)
         return out
 
@@ -31,13 +31,11 @@ transform = transforms.ToTensor()
 train_data = MNIST(root="./data", train=True, transform=transform, download=True)
 train_loader = DataLoader(train_data, batch_size=64, shuffle=True)
 
-# Instantiate the CNN model
 model = CNN_DigitClassifier()
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-# You'll likely need more than 1 epoch for a CNN to train well, often 5-10 or more.
-for epoch in range(5): # Increased epochs for better training
+for epoch in range(5):
     for i, (images, labels) in enumerate(train_loader):
         optimizer.zero_grad()
         outputs = model(images)
