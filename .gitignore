@@ -5,6 +5,8 @@ __pycache__/
 *.pyc
 venv/
 env/ # If you have another virtual env named 'env'
+data
+venv/
 
 # Databases
 db.sqlite3

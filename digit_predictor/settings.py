@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfilesf', # Essential for static files
+    'django.contrib.staticfiles', # Essential for static files
     'rest_framework', # Your DRF app
     'digit_app',      # Your custom Django app
     'corsheaders',    # For CORS handling
